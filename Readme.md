@@ -5,17 +5,17 @@ This exercise is based on this [article](https://developingsoftware.com/configur
 
 ### Steps
 - [x] Install required Autofac packages
-   - Install-Package Autofac.Mvc5
-   - Install-Package Autofac.Mvc5.Owin
+   - `Install-Package Autofac.Mvc5`
+   - `Install-Package Autofac.Mvc5.Owin`
 
 - [x] Create a custom "UserStore"
-   - ApplicationUserStore class.
+   - `ApplicationUserStore class`.
 
 - [x] Register dependencies through Autofac
-   - Comment out the Startup.Auth -> ConfigureAuth method, which creates ApplicationDbContext, ApplicationUserManager and ApplicationSignInManager instances.
-   - Modify the AccountController to have only one constructor and it to accept "ApplicationUserManager", "ApplicationSignInManager" and "IAuthenticationManager" instances from DI.
+   - Comment out the `Startup.Auth -> ConfigureAuth method`, which creates `ApplicationDbContext`, `ApplicationUserManager` and `ApplicationSignInManager` instances.
+   - Modify the `AccountController` to have only one constructor and it to accept `ApplicationUserManager`, `ApplicationSignInManager` and `IAuthenticationManager` instances from DI.
 Then modify the corresponding properties to get them from these injected instances instead of doing service locator.
-   - Finally comment out the "Dispose" method. Autofac will handle the disposing of the registered resources.
+   - Finally comment out the `Dispose` method. Autofac will handle the disposing of the registered resources.
 
 - [x] Adding Web API2 to the existing MVC application
    - Adding the following Nuget packages
