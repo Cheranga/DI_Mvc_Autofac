@@ -17,5 +17,15 @@ This exercise is based on this [article](https://developingsoftware.com/configur
 Then modify the corresponding properties to get them from these injected instances instead of doing service locator.
    - Finally comment out the "Dispose" method. Autofac will handle the disposing of the registered resources.
 
+- [x] Adding Web API2 to the existing MVC application
+   - Adding the following Nuget packages
+     Install-Package Microsoft.AspNet.WebApi
+     Install-Package Microsoft.AspNet.WebApi.Client
+     Install-Package Microsoft.AspNet.WebApi.Core
+     Install-Package Microsoft.AspNet.WebApi.WebHost
+
+- [x] Modifying the RouteConfig (Web API routing must be registered before the MVC routes)
+
+
 
 
