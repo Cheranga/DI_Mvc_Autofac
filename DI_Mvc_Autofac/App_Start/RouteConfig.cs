@@ -9,7 +9,7 @@ namespace DI_Mvc_Autofac
 {
     public class RouteConfig
     {
-        public static void RegisterRoutes(RouteCollection routes)
+        public static void RegisterMvcRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 

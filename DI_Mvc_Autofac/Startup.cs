@@ -1,7 +1,10 @@
 ﻿using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
+using DI_Mvc_Autofac.Infrastructure.Interfaces;
 using DI_Mvc_Autofac.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
@@ -26,6 +29,9 @@ namespace DI_Mvc_Autofac
             //
             // Register Dependencies
             //
+
+            builder.RegisterType<DebugLogger>().AsImplementedInterfaces().InstancePerRequest();
+
             builder.RegisterType<ApplicationDbContext>().AsSelf().InstancePerRequest();
             builder.RegisterType<ApplicationUserStore>().As<IUserStore<ApplicationUser>>().InstancePerRequest();
             builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
@@ -37,9 +43,11 @@ namespace DI_Mvc_Autofac
             // Register Controllers
             //
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            builder.RegisterApiControllers(typeof (MvcApplication).Assembly);
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
             //
             // Register OWIN
             //
