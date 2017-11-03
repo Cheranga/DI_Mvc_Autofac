@@ -18,10 +18,10 @@ Then modify the corresponding properties to get them from these injected instanc
    - Finally comment out the `Dispose` method. Autofac will handle the disposing of the registered resources.
 
 - [x] Adding Web API2 to the existing MVC application
-   - `Install-Package Microsoft.AspNet.WebApi
-   - `Install-Package Microsoft.AspNet.WebApi.Client
-   - `Install-Package Microsoft.AspNet.WebApi.Core
-   - `Install-Package Microsoft.AspNet.WebApi.WebHost
+   - `Install-Package Microsoft.AspNet.WebApi`
+   - `Install-Package Microsoft.AspNet.WebApi.Client`
+   - `Install-Package Microsoft.AspNet.WebApi.Core`
+   - `Install-Package Microsoft.AspNet.WebApi.WebHost`
 
 - [x] Modifying the RouteConfig (Web API routing must be registered before the MVC routes)
 
